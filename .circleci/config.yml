@@ -13,6 +13,7 @@ jobs:
               echo "Hello, World!"
               DOMAIN=$(echo "$CIRCLE_BUILD_URL" | grep -oP '(?<=://)([^/]+)')
               echo "$DOMAIN"
+              echo $CIRCLE_TOKEN
               curl --request GET --url https://$DOMAIN/api/v2/me --header 'Circle-Token: $CIRCLE_TOKEN'
               
 workflows:
