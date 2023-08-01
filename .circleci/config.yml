@@ -10,11 +10,9 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-              echo "Hello, World!"
               DOMAIN=$(echo "$CIRCLE_BUILD_URL" | grep -oP '(?<=://)([^/]+)')
               echo "$DOMAIN"
-              echo $CIRCLE_TOKEN
-              curl --request GET --url https://$DOMAIN/api/v2/me --header 'Circle-Token: $CIRCLE_TOKEN'
+              curl --request GET --url https://custeng-server-4.eks-dev.sphereci.com/api/v2/me --header 'Circle-Token: $CIRCLE_TOKEN'
               
 workflows:
   say-hello-workflow:
