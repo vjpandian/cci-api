@@ -11,7 +11,9 @@ jobs:
           name: "Say hello"
           command: |
               echo "Hello, World!"
-              curl --request GET --url https://circleci.com/api/v2/me --header 'Circle-Token: $CIRCLE_TOKEN'
+              DOMAIN=$(echo "$CIRCLE_BUILD_URL" | grep -oP '(?<=://)([^/]+)')
+              echo "$DOMAIN"
+              curl --request GET --url https://$DOMAIN/api/v2/me --header 'Circle-Token: $CIRCLE_TOKEN'
               
 workflows:
   say-hello-workflow:
