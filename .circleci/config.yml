@@ -1,4 +1,3 @@
-
 version: 2.1
 
 jobs:
@@ -12,9 +11,7 @@ jobs:
           command: |
               DOMAIN=$(echo "$CIRCLE_BUILD_URL" | grep -oP '(?<=://)([^/]+)')
               echo "$DOMAIN"
-              api = $(echo "https://$DOMAIN/api/v2/me")
-              echo $api
-              curl --request GET --url '$api' --header "Circle-Token: $CIRCLE_TOKEN"
+              curl --request GET --url 'https://custeng-server-4.eks-dev.sphereci.com/api/v2/me' --header "Circle-Token: $CIRCLE_TOKEN"
               
 workflows:
   say-hello-workflow:
