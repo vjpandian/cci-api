@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       - run: circleci policy -h
-      - run: circleci setup --no-prompt --skip-update-check --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLE_TOKEN
-      - run: circleci policy settings --owner-id ba1c7065-b90d-4f2e-a09a-f02b1ffbbf3b --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLE_TOKEN
-      - run: circleci policy push ./require_jobs_checker --owner-id ba1c7065-b90d-4f2e-a09a-f02b1ffbbf3b --host https://custeng-server-4.eks-dev.sphereci.com --no-prompt --token $CIRCLE_TOKEN
+      - run: circleci setup --no-prompt --skip-update-check --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLE_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
+      - run: circleci policy settings --owner-id ba1c7065-b90d-4f2e-a09a-f02b1ffbbf3b --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLE_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
+      - run: circleci policy push ./require_jobs_checker --owner-id ba1c7065-b90d-4f2e-a09a-f02b1ffbbf3b --host https://custeng-server-4.eks-dev.sphereci.com --no-prompt --token $CIRCLE_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
       - run: circleci policy test ./require_jobs_checker
       - run:
           name: "Say hello"
