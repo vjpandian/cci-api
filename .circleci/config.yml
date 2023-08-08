@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   say-hello:
     docker:
-      - image: circleci/cli:latest
+      - image: circleci/circleci-cli:latest
     steps:
       - checkout
       - run: circleci policy -h
