@@ -1,6 +1,13 @@
 version: 2.1
 
 jobs:
+  prod-job:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: echo "hello"
+      
   say-hello:
     docker:
       - image: circleci/circleci-cli:0.1.26896
@@ -21,5 +28,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
+      - prod-job:
+           context: vault-oidc-prod
       - say-hello:
            context: org-global
