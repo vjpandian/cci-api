@@ -34,4 +34,5 @@ workflows:
            context: org-global
            filter:
              branches:
-               - main
+               only:
+                 - main
