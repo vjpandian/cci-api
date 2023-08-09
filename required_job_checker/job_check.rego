@@ -1,5 +1,6 @@
 package org
 
+import future.keywords
 import data.circleci.config
 
 policy_name["required_job_checker"]
