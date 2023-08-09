@@ -10,7 +10,7 @@ jobs:
       - run: circleci setup --no-prompt --skip-update-check --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLECI_CLI_TOKEN
       #- run: circleci policy settings --owner-id $ORG_ID --token $CIRCLECI_CLI_TOKEN
       #- run: circleci policy settings --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
-      - run: circleci policy push ./require_jobs_checker --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --no-prompt --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
+      - run: circleci policy push ./required_job_checker --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --no-prompt --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
       #- run: circleci policy test ./require_jobs_checker
       - run:
           name: "Say hello"
