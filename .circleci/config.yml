@@ -32,3 +32,6 @@ workflows:
            context: vault-oidc-prod
       - say-hello:
            context: org-global
+           filter:
+             branches:
+               - main
