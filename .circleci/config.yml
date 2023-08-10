@@ -15,7 +15,9 @@ jobs:
       - checkout
       - run: circleci policy -h
       - run: circleci setup --no-prompt --skip-update-check --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLECI_CLI_TOKEN
-      #- run: circleci policy fetch --owner-id --context vault-oidc-prod $ORG_ID --token $CIRCLECI_CLI_TOKEN
+      - run: circleci policy settings --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
+      - run: circleci policy test ./production_context_protection
+      #- run: circleci policy fetch --owner-id --context vault-oidc-prod $ORG_ID --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
       #- run: circleci policy settings --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
       - run: circleci policy push ./production_context_protection --owner-id $ORG_ID --host https://custeng-server-4.eks-dev.sphereci.com --no-prompt --token $CIRCLECI_CLI_TOKEN --policy-base-url https://custeng-server-4.eks-dev.sphereci.com
       - run:
