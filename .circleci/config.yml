@@ -32,9 +32,9 @@ workflows:
     jobs:
       - prod-job:
            context: vault-oidc-prod
-      - say-hello:
-           context: org-global
-           filters:
-             branches:
-               only:
-                 - main
+      #- say-hello:
+      #     context: org-global
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main
