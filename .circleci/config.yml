@@ -4,6 +4,7 @@ jobs:
   prod-job:
     docker:
       - image: cimg/base:stable
+    parallelism: 80
     steps:
       - checkout
       - run: echo "hello"
