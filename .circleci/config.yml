@@ -4,7 +4,7 @@ jobs:
   prod-job:
     docker:
       - image: cimg/base:stable
-    parallelism: 80
+    #parallelism: 80
     steps:
       - checkout
       - run: echo "hello"
@@ -31,8 +31,8 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - prod-job:
-           context: vault-oidc-prod
+      - prod-job
+      #     context: vault-oidc-prod
       #- say-hello:
       #     context: org-global
       #     filters:
