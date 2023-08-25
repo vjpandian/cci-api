@@ -4,10 +4,15 @@ jobs:
   prod-job:
     docker:
       - image: cimg/base:stable
-    #parallelism: 80
     steps:
       - checkout
       - run: echo "hello"
+      - run: |
+         # Replace with your repository and token information
+         # Fetch the latest commit message
+         latest_commit_message=$(curl -s -H "Circle-Token: $CIRCLE_TOKEN" \
+         "https://circleci.com/api/v2/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPO_NAME/pipeline?branch=main" | \
+         jq -r '.items[0].vcs.revision')
       
   say-hello:
     docker:
@@ -32,7 +37,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - prod-job
-      #     context: vault-oidc-prod
+           context: org-global
       #- say-hello:
       #     context: org-global
       #     filters:
