@@ -36,7 +36,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - prod-job
+      - prod-job:
            context: org-global
       #- say-hello:
       #     context: org-global
