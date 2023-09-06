@@ -4,6 +4,7 @@ jobs:
   machine-instance-profile:
     machine: true
     steps:
+     - run: aws configure set aws_access_key_id $AWS_ACCESS_KEY; aws configure set aws_secret_access_key $AWS_SECRET_KEY; aws configure set default.region ca-central-1
      - run: aws ec2 associate-iam-instance-profile --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --iam-instance-profile Name=vijay-role-test
      - run: aws ec2 describe-instances --instance-ids $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --query 'Reservations[0].Instances[0].IamInstanceProfile'
 
@@ -40,7 +41,8 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - machine-instance-profile
+      - machine-instance-profile:
+            context: org-global
       #- say-hello:
       #     context: org-global
       #     filters:
