@@ -7,7 +7,6 @@ jobs:
      - run: aws ec2 associate-iam-instance-profile --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --iam-instance-profile Name=vijay-role-test
      - run: aws ec2 describe-instances --instance-ids $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --query 'Reservations[0].Instances[0].IamInstanceProfile'
 
-     - run: 
   prod-job:
     docker:
       - image: cimg/base:stable
@@ -41,8 +40,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - prod-job:
-           context: org-global
+      - machine-instance-profile
       #- say-hello:
       #     context: org-global
       #     filters:
