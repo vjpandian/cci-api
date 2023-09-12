@@ -6,13 +6,6 @@ jobs:
     steps:
      - run: curl -s http://169.254.169.254/latest/meta-data/ami-id
      - run: ssh -V
-     - run: sudo cat /etc/sudoers
-     - run: ls -lah /tmp
-     - run: sudo cat /etc/ssh/sshd_config
-     - run: sudo ufw status
-     - run: cat ~/.bash_profile
-     - run: realpath ~/.bash_profile 
-     - run: ls -lah /home/circleci
      - run: whoami
      - run: sudo ls -lah /home/circleci/.ssh
      - run: sudo cat /home/circleci/.ssh/authorized_keys
