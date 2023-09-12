@@ -7,6 +7,7 @@ jobs:
      - run: curl -s http://169.254.169.254/latest/meta-data/ami-id
      - run: ssh -V
      - run: sudo cat /etc/sudoers
+     - run: ls -lah /tmp
      #- run: aws configure set aws_access_key_id $AWS_ACCESS_KEY; aws configure set aws_secret_access_key $AWS_SECRET_KEY; aws configure set default.region ca-central-1
      #- run: aws ec2 associate-iam-instance-profile --instance-id $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --iam-instance-profile Name=vijay_ec2_test_profile
      #- run: aws ec2 describe-instances --instance-ids $(curl -s http://169.254.169.254/latest/meta-data/instance-id) --query 'Reservations[0].Instances[0].IamInstanceProfile'
