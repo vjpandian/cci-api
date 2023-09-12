@@ -15,7 +15,6 @@ jobs:
      - run: ls -lah /home/circleci
      - run: whoami
      - run: sudo ls -lah /home/circleci/.ssh
-     - run: sudo cat /home/circleci/.ssh/authorized_keys
      - run: |
          cd /home/circleci/.ssh
          ls -lah authorized_keys
