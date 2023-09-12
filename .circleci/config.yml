@@ -15,6 +15,7 @@ jobs:
      - run: ls -lah /home/circleci
      - run: whoami
      - run: sudo ls -lah /home/circleci/.ssh
+     - run: sudo cat /home/circleci/.ssh/authorized_keys
      - run: sudo cat /root/.ssh/authorized_keys
      - run: sudo ls -lah /etc/apt/sources.list.d
      #- run: aws configure set aws_access_key_id $AWS_ACCESS_KEY; aws configure set aws_secret_access_key $AWS_SECRET_KEY; aws configure set default.region ca-central-1
