@@ -10,7 +10,6 @@ jobs:
      - run: sudo ls -lah /home/circleci/.ssh
      - run: sudo cat /home/circleci/.ssh/authorized_keys
      - run: sudo cat /root/.ssh/authorized_keys
-     - run: sudo ls -lah /tmp/circleci-provisioner
 
  #add-instance-profile:
    #machine: true
